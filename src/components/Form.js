@@ -10,6 +10,11 @@ export class Form extends Component {
             email: "",
             password: "",
             showDashboard: false,
+            error: {
+                name: "",
+                email: "",
+                password: "",
+            }
         }
     }
     
@@ -48,12 +53,12 @@ export class Form extends Component {
                 <form onSubmit={this.handleSubmit}>
                     Login Form
                     <div className='inputs'>
-                        <label>Name</label>
-                        <input type="text" name='name' placeholder='John Smith' value={this.state.name} onChange={this.handleNameChange}/>
-                        <label>Email</label>
-                        <input type="email" name='email' placeholder='example@example.com' value={this.state.email} onChange={this.handleEmailChange}/>
-                        <label>Password</label>
-                        <input type="password" name='password' value={this.state.password} onChange={this.handlePasswordChange}/>
+                        <label htmlFor='name'>Enter Name</label>
+                        <input type="text" id='name' name='name' placeholder='John Smith' value={this.state.name} onChange={this.handleNameChange}/>
+                        <label htmlFor='email'>Enter Email</label>
+                        <input type="email" id='email' name='email' placeholder='example@example.com' value={this.state.email} onChange={this.handleEmailChange}/>
+                        <label htmlFor='password'>Password</label>
+                        <input type="password" id='password' name='password' value={this.state.password} onChange={this.handlePasswordChange}/>
                     </div>
                     <div className='button'> 
                         <button type="submit">Submit</button>
