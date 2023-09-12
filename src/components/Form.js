@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Dashboard from './Dashboard'
 
 export class Form extends Component {
     constructor(props) {
@@ -7,7 +8,8 @@ export class Form extends Component {
         this.state = {
             name: "",
             email: "",
-            password: ""
+            password: "",
+            showDashboard: false,
         }
     }
     
@@ -30,26 +32,35 @@ export class Form extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault()
+        this.setState({
+            showDashboard: true
+        });
+        e.preventDefault();
     }
 
     render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                Login Form
-                <div className='inputs'>
-                    <label>Name</label>
-                    <input type="text" name='name' placeholder='John Smith' value={this.state.name} onChange={this.handleNameChange}/>
-                    <label>Email</label>
-                    <input type="email" name='email' placeholder='example@example.com' value={this.state.email} onChange={this.handleEmailChange}/>
-                    <label>Password</label>
-                    <input type="password" name='password' value={this.state.password} onChange={this.handlePasswordChange}/>
-                </div>
-                <div className='button'> 
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
-        )
+        if(this.state.showDashboard) {
+            return (
+                <Dashboard user = {this.state.name}/>
+            )
+        } else {
+            return (
+                <form onSubmit={this.handleSubmit}>
+                    Login Form
+                    <div className='inputs'>
+                        <label>Name</label>
+                        <input type="text" name='name' placeholder='John Smith' value={this.state.name} onChange={this.handleNameChange}/>
+                        <label>Email</label>
+                        <input type="email" name='email' placeholder='example@example.com' value={this.state.email} onChange={this.handleEmailChange}/>
+                        <label>Password</label>
+                        <input type="password" name='password' value={this.state.password} onChange={this.handlePasswordChange}/>
+                    </div>
+                    <div className='button'> 
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            )
+        }
     }
 }
 
