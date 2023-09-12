@@ -55,10 +55,15 @@ export class Form extends Component {
                     <div className='inputs'>
                         <label htmlFor='name'>Enter Name</label>
                         <input type="text" id='name' name='name' placeholder='John Smith' value={this.state.name} onChange={this.handleNameChange}/>
+                        <span className='error'>{this.state.error.name}</span>
+                        
                         <label htmlFor='email'>Enter Email</label>
                         <input type="email" id='email' name='email' placeholder='example@example.com' value={this.state.email} onChange={this.handleEmailChange}/>
+                        <span className='error'>{this.state.error.email}</span>
+                        
                         <label htmlFor='password'>Password</label>
                         <input type="password" id='password' name='password' value={this.state.password} onChange={this.handlePasswordChange}/>
+                        <span className='error'>{this.state.error.password}</span>
                     </div>
                     <div className='button'> 
                         <button type="submit">Submit</button>
