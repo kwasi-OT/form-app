@@ -86,7 +86,7 @@ export class Form extends Component {
         } else {
             return (
                 <form onSubmit={this.handleSubmit}>
-                    Login Form
+                    <h3>Login Form</h3>
                     <div className='inputs'>
                         <label htmlFor='name'>Enter Name</label>
                         <input type="text" id='name' name='name' placeholder='John Smith' value={this.state.name} onChange={this.handleNameChange}/>
