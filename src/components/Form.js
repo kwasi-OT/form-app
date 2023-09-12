@@ -10,10 +10,10 @@ export class Form extends Component {
             email: "",
             password: "",
             showDashboard: false,
-            error: {
+            errors: {
                 name: "",
                 email: "",
-                password: "",
+                password: ""
             }
         }
     }
@@ -37,10 +37,45 @@ export class Form extends Component {
     }
 
     handleSubmit = (e) => {
-        this.setState({
-            showDashboard: true
-        });
+        const errors = {}
+
+        if(this.state.name === "") {
+            errors.name = "Name is required";
+        }
+
+        if(this.state.name.length <2) {
+            errors.name = "Name must be at least 2 characters";
+        }
+
+        if(!this.validateEmail(this.state.email)) {
+            errors.email = "Invalid email";
+        }
+
+        if(this.state.password === "") {
+            errors.password = "Please enter a password";
+        }
+
+        if(this.state.password.length < 5) {
+            errors.password = "Password must be at least 5 characters";
+        }
+
+        if(Object.keys(errors).length > 0) {
+            this.setState({ 
+                errors
+            });
+        } else {
+            this.setState({
+                showDashboard: true
+            });
+        }
+
         e.preventDefault();
+    }
+
+    validateEmail(email) {
+        return email.match(
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
     }
 
     render() {
@@ -55,15 +90,15 @@ export class Form extends Component {
                     <div className='inputs'>
                         <label htmlFor='name'>Enter Name</label>
                         <input type="text" id='name' name='name' placeholder='John Smith' value={this.state.name} onChange={this.handleNameChange}/>
-                        <span className='error'>{this.state.error.name}</span>
+                        <span className='error'>{this.state.errors.name}</span>
                         
                         <label htmlFor='email'>Enter Email</label>
                         <input type="email" id='email' name='email' placeholder='example@example.com' value={this.state.email} onChange={this.handleEmailChange}/>
-                        <span className='error'>{this.state.error.email}</span>
+                        <span className='error'>{this.state.errors.email}</span>
                         
                         <label htmlFor='password'>Password</label>
                         <input type="password" id='password' name='password' value={this.state.password} onChange={this.handlePasswordChange}/>
-                        <span className='error'>{this.state.error.password}</span>
+                        <span className='error'>{this.state.errors.password}</span>
                     </div>
                     <div className='button'> 
                         <button type="submit">Submit</button>
