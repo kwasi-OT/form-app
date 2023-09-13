@@ -37,15 +37,32 @@ input[type = "password"]:focus {
   color: red;
 }
 
-.dashboard {
-  width: 80%;
-  height: fit-content;
-  margin: 4rem auto;
+.button {
+  border: none;
+  background-color: #3366ff;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #3366ff;
+  outline: 0.1rem solid #3366ff;
+}
+
+.buttonContainer {
+  margin-bottom: 2rem;
 }
 
 .showLogout {
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 40%;
 }
 
 /* tablet and mobile settings */

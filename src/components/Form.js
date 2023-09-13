@@ -94,8 +94,8 @@ export class Form extends Component {
                     <div>
                         <Dashboard user = {this.state.name}/>
                     </div>
-                    <div className='button'>
-                        <button onClick={this.logOut}>logOut</button>
+                    <div>
+                        <button className='button' onClick={this.logOut}>logOut</button>
                     </div>
                 </div>
             )
@@ -116,8 +116,8 @@ export class Form extends Component {
                         <input type="password" id='password' name='password' value={this.state.password} onChange={this.handlePasswordChange}/>
                         <span className='error'>{this.state.errors.password}</span>
                     </div>
-                    <div className='button'> 
-                        <button type="submit">Submit</button>
+                    <div className='buttonContainer'> 
+                        <button className='button' type="submit">Submit</button>
                     </div>
                 </form>
             )
