@@ -43,6 +43,11 @@ input[type = "password"]:focus {
   margin: 4rem auto;
 }
 
+.showLogout {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* tablet and mobile settings */
 
 @media (min-width: 608px) and (max-width: 900px) {

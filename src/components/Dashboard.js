@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Dashboard({user}) {
     return (
@@ -6,7 +6,7 @@ function Dashboard({user}) {
             <h3>Welcome, {user}!</h3>
             <p>You've successfully logged in.</p>
         </div>
-    )
+    );
 }
 
-export default Dashboard
+export default Dashboard;

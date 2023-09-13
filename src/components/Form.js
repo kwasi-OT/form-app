@@ -78,10 +78,26 @@ export class Form extends Component {
         );
     }
 
+    logOut = () => {
+        this.setState({
+            showDashboard: false,
+            name: "",
+            email: "",
+            password: ""
+        });
+    }
+
     render() {
         if(this.state.showDashboard) {
             return (
-                <Dashboard user = {this.state.name}/>
+                <div className='showLogout'>
+                    <div>
+                        <Dashboard user = {this.state.name}/>
+                    </div>
+                    <div className='button'>
+                        <button onClick={this.logOut}>logOut</button>
+                    </div>
+                </div>
             )
         } else {
             return (
